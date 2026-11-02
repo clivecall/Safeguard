@@ -1,6 +1,6 @@
 // Shared header and footer. Text is filled in by hydrate() in data.js through data-copy.
 const page = document.body.dataset.page || 'home';
-const minimal = ['checkout', 'thanks', 'amazon'].includes(page);
+const minimal = ['checkout', 'thanks'].includes(page);
 
 const logo = `<svg class="logo" viewBox="0 0 28 28" aria-hidden="true">
   <rect x="7" y="2" width="14" height="14" rx="3.5" fill="#d9d0c6" stroke="#a89c8f"/>
@@ -50,5 +50,5 @@ announce.innerHTML = `<div class="wrap"><span data-copy="nav.announce"></span>${
 }</div>`;
 
 document.body.prepend(header);
-if (page !== 'amazon') header.after(announce);
+header.after(announce);
 document.body.append(footer);

@@ -32,8 +32,8 @@ def check_keys(label, row, required):
 
 
 products = load("data/products.json") or []
-listings = load("data/amazon-listings.json") or []
 doors = load("data/doors.json") or []
+settings = load("data/settings.json") or {}
 preorders = load("data/preorders.seed.json") or []
 copy = load("site/copy.json") or {}
 
@@ -72,37 +72,12 @@ for p in products:
     if p["id"] == "safeguard-single":
         if p["channel"] != "amazon" or p["unitPriceCents"] != 897:
             err(f"{label}: must be amazon at 897")
-for needed in ("safeguard-4pack", "safeguard-single"):
-    if needed not in by_id:
-        err(f"products.json: missing {needed}")
-
-# amazon-listings.json
-for row in listings:
-    label = f"amazon-listings.json[{row.get('productId')}]"
-    if not check_keys(label, row, ["productId", "asin", "title", "priceCents", "listingUrl", "bullets",
-                                   "packageCard", "brandReferralBonus"]):
-        continue
-    product = by_id.get(row["productId"])
-    if not product or product["channel"] != "amazon":
-        err(f"{label}: productId must match a product with channel amazon")
-    elif row["priceCents"] != product["unitPriceCents"]:
-        err(f"{label}: priceCents must equal the product's unitPriceCents")
-    if not row["asin"].startswith("MOCK-"):
-        err(f"{label}: asin must start with MOCK-")
-    if not (isinstance(row["bullets"], list) and 0 < len(row["bullets"]) <= 5):
-        err(f"{label}: bullets must have 1 to 5 entries")
-    if row["brandReferralBonus"] is not True:
-        err(f"{label}: brandReferralBonus must be true")
-    card = row["packageCard"]
-    if check_keys(f"{label}.packageCard", card, ["headline", "body", "url"]):
-        if "utm_source=amazon" not in card["url"] or "utm_medium=package-card" not in card["url"]:
-            err(f"{label}.packageCard.url: must include utm_source=amazon and utm_medium=package-card")
-        if not card["url"].startswith("index.html"):
-            err(f"{label}.packageCard.url: must point at the website 4-pack page (index.html)")
-        if "safeguard-single" in card["url"]:
-            err(f"{label}.packageCard.url: must not link to a single")
-if not listings:
-    err("amazon-listings.json: needs at least one listing")
+if "safeguard-4pack" not in by_id:
+    err("products.json: missing safeguard-4pack")
+if "safeguard-single" in by_id:
+    err("products.json: the single is parked with Amazon")
+if (ROOT / "data" / "amazon-listings.json").exists() or (ROOT / "site" / "amazon-preview.html").exists():
+    err("Amazon files are parked and must not be published")
 
 # doors.json
 for door in doors:
@@ -142,6 +117,19 @@ for row in preorders:
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T[\d:]+Z", row["createdAt"]):
         err(f"{label}: createdAt must be ISO 8601 (UTC)")
 
+# settings.json
+if check_keys("settings.json", settings, ["preorderEndpoint", "contactEmail"]):
+    endpoint = settings["preorderEndpoint"]
+    if endpoint and not re.fullmatch(r"https://script\.google\.com/macros/s/[\w-]+/exec", endpoint):
+        err("settings.json: preorderEndpoint must be empty or an Apps Script /exec URL")
+    if endpoint and not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", settings["contactEmail"]):
+        err("settings.json: contactEmail is required once preorderEndpoint is set")
+
+# tools/preorders-sheet.gs keeps its own price because it runs on Google, not on the site.
+script = (ROOT / "tools" / "preorders-sheet.gs").read_text()
+if f"const PACK_PRICE_CENTS = {four_pack.get('packPriceCents')};" not in script:
+    err("tools/preorders-sheet.gs: PACK_PRICE_CENTS must equal the 4-pack packPriceCents")
+
 # copy.json
 def lookup(path):
     node = copy
@@ -153,7 +141,8 @@ def lookup(path):
 
 
 for key in ["hero.headline", "hero.sub", "product.description", "product.materialsLine", "doors.note",
-            "preorder.notice", "amazon.singlesNote", "footer.disclaimer"]:
+            "preorder.notice", "preorder.privacy", "preorder.sendError", "preorder.sending",
+            "preorder.thanksBodyLive", "preorder.testBanner", "footer.disclaimer"]:
     if not isinstance(lookup(key), str) or not lookup(key).strip():
         err(f"copy.json: missing or empty '{key}'")
 if lookup("product.materialsLine") != "washable canvas with a soft-touch silicone back":

@@ -13,10 +13,6 @@
       <h1 class="duo"><b data-copy="store.title"></b> <span data-copy="hero.headline"></span></h1>
       <ul class="help">
         <li>
-          <img src="img/sleeve.png" alt="" width="340" height="428">
-          <p><b data-copy="store.helpSingle"></b><br><a class="more amazon-link" href="amazon-preview.html" data-copy="amazon.singlesLink"></a></p>
-        </li>
-        <li>
           <img src="img/door.png" alt="" width="268" height="428">
           <p><b data-copy="store.helpDoors"></b><br><a class="more" href="doors.html" data-copy="doors.guide"></a></p>
         </li>
@@ -25,7 +21,6 @@
 
     <nav class="cats" aria-label="Shop by category">
       <a href="product.html"><img src="img/pack.png" alt="" width="390" height="428"><span data-copy="store.cat4pack"></span></a>
-      <a class="amazon-link" href="amazon-preview.html"><img src="img/sleeve.png" alt="" width="340" height="428"><span data-copy="store.catSingle"></span></a>
       <a href="product.html"><img src="img/sleeve-back.png" alt="" width="307" height="428"><span data-copy="store.catBack"></span></a>
       <a href="doors.html"><img src="img/door.png" alt="" width="268" height="428"><span data-copy="store.catDoors"></span></a>
       <a href="#routine"><img src="img/routine.png" alt="" width="261" height="428"><span data-copy="store.catRoutine"></span></a>
@@ -42,14 +37,6 @@
             <p><span data-copy="buy.why"></span><br><b data-product="safeguard-4pack" data-field="packPriceCents"></b> · <span data-copy="buy.shipping"></span></p>
           </div>
           <img src="img/pack.png" alt="Four cream canvas sleeves side by side, each showing only the top of a phone" width="390" height="428">
-        </a>
-        <a class="promo amazon-link" href="amazon-preview.html">
-          <div>
-            <p class="eyebrow" data-copy="shop.badgeAmazon"></p>
-            <h3 data-copy="pdp.single"></h3>
-            <p><span data-copy="shop.singleSub"></span> · <span data-product="safeguard-single" data-field="unitPriceCents"></span></p>
-          </div>
-          <img src="img/sleeve.png" alt="A single cream canvas sleeve with only the top of a phone showing" width="340" height="428">
         </a>
         <a class="promo" href="product.html">
           <div>
@@ -144,11 +131,7 @@
     import { boot } from './js/data.js';
     import { captureSource } from './js/source.js';
     captureSource();
-    const { listings } = await boot();
-    const single = listings[0];
-    if (single) {
-      document.querySelectorAll('.amazon-link').forEach((a) => { a.href = single.listingUrl; });
-    }
+    await boot();
   </script>
 </body>
 </html>

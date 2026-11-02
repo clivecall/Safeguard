@@ -9,13 +9,13 @@ async function getJSON(url) {
 }
 
 export async function loadAll() {
-  const [products, listings, doors, copy] = await Promise.all([
+  const [products, doors, settings, copy] = await Promise.all([
     getJSON(new URL('products.json', DATA_DIR)),
-    getJSON(new URL('amazon-listings.json', DATA_DIR)),
     getJSON(new URL('doors.json', DATA_DIR)),
+    getJSON(new URL('settings.json', DATA_DIR)),
     getJSON(COPY_URL),
   ]);
-  return { products, listings, doors, copy };
+  return { products, doors, settings, copy };
 }
 
 export function money(cents) {
@@ -41,11 +41,20 @@ export function hydrate(root, { products, copy }) {
   });
 }
 
+// Shown until pre-orders are recorded, so a tester never mistakes this for a real order.
+function showTestBanner(copy) {
+  const banner = document.createElement('p');
+  banner.className = 'mock-banner';
+  banner.textContent = copy.preorder.testBanner;
+  document.body.prepend(banner);
+}
+
 // Loads everything and hydrates the page. Shows a plain message if the data can't load.
 export async function boot() {
   try {
     const data = await loadAll();
     hydrate(document, data);
+    if (!data.settings.preorderEndpoint) showTestBanner(data.copy);
     return data;
   } catch (err) {
     const banner = document.createElement('p');

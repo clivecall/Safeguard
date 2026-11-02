@@ -23,7 +23,10 @@
   <script type="module">
     import './js/chrome.js';
     import { boot, money } from './js/data.js';
-    await boot();
+    const { settings, copy } = await boot();
+    if (settings.preorderEndpoint) {
+      document.querySelector('[data-copy="preorder.thanksBody"]').textContent = copy.preorder.thanksBodyLive;
+    }
     const id = new URLSearchParams(location.search).get('id');
     let order = null;
     try {

@@ -13,20 +13,5 @@
     "cupCount": 6,
     "materials": ["cream cotton canvas", "cream silicone"],
     "image": "img/pack.png"
-  },
-  {
-    "id": "safeguard-single",
-    "name": "Safeguard single",
-    "packSize": 1,
-    "unitPriceCents": 897,
-    "packPriceCents": 897,
-    "currency": "USD",
-    "channel": "amazon",
-    "shipping": { "freeShipping": false },
-    "status": "preorder",
-    "shipWindow": "Early 2027",
-    "cupCount": 6,
-    "materials": ["cream cotton canvas", "cream silicone"],
-    "image": "img/sleeve.png"
   }
 ]

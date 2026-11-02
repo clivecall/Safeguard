@@ -283,6 +283,7 @@ footer.site { margin-top: 64px; padding: 24px 0 36px; background: var(--bg-alt);
 .foot p { font-size: 13px; margin: 0; padding-top: 10px; border-top: 1px solid var(--line); }
 
 .load-error { margin: 0; padding: 12px 16px; background: var(--warn-bg); color: var(--warn-text); }
+.hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .mock-banner { text-align: center; margin: 0; padding: 10px 16px; background: var(--warn-bg); color: var(--warn-text); font-size: 15px; }
 
 /* Product page */

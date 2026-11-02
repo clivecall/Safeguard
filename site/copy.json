@@ -80,35 +80,28 @@
     "q3": "Do I need an outlet by the door?",
     "a3": "Only if you want to charge the phone there. The cable hole in the bottom lets your own charger reach the phone. A charger is not included.",
     "q4": "Is anything charged today?",
-    "a4": "No. This is a pre-order and this prototype takes no payment. We will email you before anything ships.",
+    "a4": "No. This is a pre-order and no payment is taken. We will email you before anything ships.",
     "q5": "How do I clean it?",
     "a5": "Hand-wash the canvas front and wipe the silicone back clean.",
     "q6": "Can I move it to another door?",
     "a6": "Yes. The suction cups use no adhesive, so you can move the sleeve to another suitable door or room."
   },
   "preorder": {
-    "notice": "Pre-order. Safeguard is not in production yet and is expected to ship in Early 2027. This prototype takes no payment.",
+    "notice": "Pre-order. Safeguard is not in production yet and is expected to ship in Early 2027. No payment is taken.",
     "checkoutTitle": "Reserve your 4-pack",
     "checkoutSub": "Tell us where to reach you. Nothing is charged, and we will email you before anything ships.",
     "submit": "Reserve my 4-pack",
     "orderTitle": "Your pre-order",
     "thanksTitle": "You are on the list",
-    "thanksBody": "Your pre-order is saved in this browser only, because this is a prototype with mock data. No payment was taken."
-  },
-  "amazon": {
-    "singlesNote": "Only need one? A single Safeguard is available on Amazon. The 4-pack is sold only here, with free shipping.",
-    "singlesLink": "See the single on Amazon",
-    "previewBanner": "Mock preview of the Amazon single listing. This is not a real Amazon page.",
-    "cardLabel": "The card packed in each single",
-    "cardCta": "Get the 4-pack with free shipping"
+    "thanksBody": "Your pre-order is saved in this browser only, because this is a prototype with mock data. No payment was taken.",
+    "thanksBodyLive": "We have your pre-order. No payment was taken, and we will email you before anything ships.",
+    "testBanner": "Prototype for testing. Nothing here is a real order, nothing will ship, and your details stay on this device.",
+    "sending": "Saving your pre-order...",
+    "sendError": "We could not save your pre-order. Check your connection and try again.",
+    "privacy": "We keep your name and email in a private Google Sheet and use them only for this pre-order. We do not sell them. For questions, or to have your details removed, email"
   },
   "footer": {
-    "disclaimer": "Prototype with mock data. No payment is taken and nothing here is for sale yet."
-  },
-  "shop": {
-    "badgeAmazon": "Sold on Amazon",
-    "singleSub": "One sleeve, sold on Amazon",
-    "amazonCta": "View on Amazon"
+    "disclaimer": "Pre-order only. No payment is taken and nothing has shipped yet."
   },
   "rooms": {
     "title": "Shop by door.",
@@ -122,7 +115,6 @@
     "home": "Home",
     "qty": "Quantity (4-packs)",
     "cta": "Pre-order now",
-    "single": "Need just one?",
     "perk1": "Free shipping on the 4-pack",
     "perk2": "Expected to ship in Early 2027",
     "perk3": "Nothing is charged today",
@@ -131,7 +123,7 @@
     "care": "Made from washable canvas with a soft-touch silicone back. Hand-wash the canvas front and wipe the silicone back clean.",
     "doorsTitle": "Door compatibility",
     "shipTitle": "Shipping and pre-order",
-    "ship": "The 4-pack ships free. Safeguard is not in production yet, so this is a pre-order and nothing is charged in this prototype. We will email you before anything ships.",
+    "ship": "The 4-pack ships free. Safeguard is not in production yet, so this is a pre-order and nothing is charged. We will email you before anything ships.",
     "reviewsTitle": "Reviews",
     "reviews": "No reviews yet. Safeguard has not shipped, so there is nothing to show here.",
     "moreTitle": "Also from Safeguard",
@@ -141,10 +133,8 @@
   },
   "store": {
     "title": "Safeguard.",
-    "helpSingle": "Only need one?",
     "helpDoors": "Not sure about your door?",
     "cat4pack": "4-pack",
-    "catSingle": "Single",
     "catBack": "Suction back",
     "catDoors": "Door guide",
     "catRoutine": "Routine",

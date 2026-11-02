@@ -47,8 +47,6 @@
           <li data-copy="pdp.perk3"></li>
         </ul>
 
-        <p class="single-line"><span data-copy="pdp.single"></span> <a class="link" id="amazon-link" href="amazon-preview.html" data-copy="shop.amazonCta"></a></p>
-
         <div class="acc">
           <details open>
             <summary data-copy="pdp.detailsTitle"></summary>
@@ -87,10 +85,8 @@
     import { boot, money } from './js/data.js';
     import { captureSource } from './js/source.js';
     captureSource();
-    const { products, listings } = await boot();
+    const { products } = await boot();
     const pack = products.find((p) => p.id === 'safeguard-4pack');
-
-    if (listings[0]) document.getElementById('amazon-link').href = listings[0].listingUrl;
 
     // Gallery
     const main = document.getElementById('main-image');

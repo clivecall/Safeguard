@@ -22,7 +22,13 @@
         <input id="email" name="email" type="email" autocomplete="email" required>
         <label for="qty">Number of 4-packs</label>
         <input id="qty" name="qty" type="number" min="1" max="10" value="1" inputmode="numeric" required>
+        <div class="hp" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
         <button class="button" type="submit" data-copy="preorder.submit"></button>
+        <p class="notice" id="send-error" role="alert" data-copy="preorder.sendError" hidden style="margin-top:16px"></p>
+        <p class="muted" id="privacy" hidden style="margin-top:16px;font-size:14px"></p>
       </form>
 
       <div class="card">

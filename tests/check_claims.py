@@ -23,6 +23,7 @@ BANNED = [
      "no ratings, review counts or sales badges"),
     (r"\b(spy|spying|monitor\w*|catch\w*|police|policing|surveil\w*)\b", "positioning: family routine, not control of the teen"),
     (r"\$\s?\d", "prices must come from data, not be hardcoded in text"),
+    (r"\bamazon\b", "Amazon is parked: see the channel plan in CLAUDE.md"),
 ]
 
 errors = []
@@ -46,10 +47,10 @@ def strings(node):
 
 
 # Text in JSON files. Skip URL fields, which are not customer-facing prose.
-for rel in ["site/copy.json", "data/amazon-listings.json", "data/products.json"]:
+for rel in ["site/copy.json", "data/products.json"]:
     data = json.loads((ROOT / rel).read_text())
     for text in strings(data):
-        if not text.startswith(("http", "index.html", "amazon-preview", "img/")):
+        if not text.startswith(("http", "index.html", "img/")):
             scan(rel, text)
 
 # Text in HTML pages, with scripts, styles and tags removed.
