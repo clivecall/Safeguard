@@ -9,13 +9,12 @@ async function getJSON(url) {
 }
 
 export async function loadAll() {
-  const [products, doors, settings, copy] = await Promise.all([
+  const [products, settings, copy] = await Promise.all([
     getJSON(new URL('products.json', DATA_DIR)),
-    getJSON(new URL('doors.json', DATA_DIR)),
     getJSON(new URL('settings.json', DATA_DIR)),
     getJSON(COPY_URL),
   ]);
-  return { products, doors, settings, copy };
+  return { products, settings, copy };
 }
 
 export function money(cents) {

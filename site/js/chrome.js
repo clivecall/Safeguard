@@ -11,16 +11,10 @@ const logo = `<svg class="logo" viewBox="0 0 28 28" aria-hidden="true">
 const links = [
   ['index.html#shop', 'nav.shop'],
   ['index.html#how', 'nav.how'],
-  ['doors.html', 'nav.doors'],
   ['index.html#faq', 'nav.faq'],
 ];
 
-const navLinks = links
-  .map(([href, key]) => {
-    const current = (page === 'doors' && href === 'doors.html') ? ' aria-current="page"' : '';
-    return `<a href="${href}" data-copy="${key}"${current}></a>`;
-  })
-  .join('');
+const navLinks = links.map(([href, key]) => `<a href="${href}" data-copy="${key}"></a>`).join('');
 
 const header = document.createElement('header');
 header.className = 'site';

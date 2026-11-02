@@ -5,7 +5,6 @@
   "nav": {
     "how": "How it works",
     "inside": "What it is",
-    "doors": "Doors",
     "faq": "FAQ",
     "preorder": "Pre-order",
     "back": "Back to the store",
@@ -55,15 +54,8 @@
     "step5": "Leave the phone outside the door overnight. Some families collect them to charge in the parents' room."
   },
   "doors": {
-    "title": "Which doors it is made for",
-    "note": "Suction cups hold best on smooth, non-porous doors such as gloss or semi-gloss paint, laminate, glass and metal. They are not recommended on flat or matte paint, textured doors or bare wood. We have not finished testing yet, so every finish is marked untested.",
-    "bestOn": "Made for smooth, non-porous doors",
-    "notOn": "Not recommended",
-    "guide": "See the full door guide",
-    "expected": "Expected to hold. Bench test pending.",
-    "notRecommended": "Not recommended.",
-    "pass": "Tested: held for the full test.",
-    "fail": "Tested: did not hold."
+    "note": "Suction cups hold best on smooth, non-porous doors such as gloss or semi-gloss paint, laminate, glass and metal. They are not recommended on flat or matte paint, textured doors or bare wood. We have not finished testing any door finish yet.",
+    "bestOn": "Made for smooth, non-porous doors"
   },
   "buy": {
     "title": "Get your Safeguards",
@@ -84,7 +76,8 @@
     "q5": "How do I clean it?",
     "a5": "Hand-wash the canvas front and wipe the silicone back clean.",
     "q6": "Can I move it to another door?",
-    "a6": "Yes. The suction cups use no adhesive, so you can move the sleeve to another suitable door or room."
+    "a6": "Yes. The suction cups use no adhesive, so you can move the sleeve to another suitable door or room.",
+    "q7": "Which doors does it work on?"
   },
   "preorder": {
     "notice": "Pre-order. Safeguard is not in production yet and is expected to ship in Early 2027. No payment is taken.",
@@ -134,10 +127,9 @@
   },
   "store": {
     "title": "Safeguard.",
-    "helpDoors": "Not sure about your door?",
     "cat4pack": "4-pack",
     "catBack": "Suction back",
-    "catDoors": "Door guide",
+    "catDoors": "Doors",
     "catRoutine": "Routine",
     "catFaq": "Questions",
     "shopTitle": "The 4-pack.",

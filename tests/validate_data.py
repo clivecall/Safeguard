@@ -32,7 +32,6 @@ def check_keys(label, row, required):
 
 
 products = load("data/products.json") or []
-doors = load("data/doors.json") or []
 settings = load("data/settings.json") or {}
 preorders = load("data/preorders.seed.json") or []
 copy = load("site/copy.json") or {}
@@ -73,20 +72,6 @@ if "safeguard-single" in by_id:
     err("products.json: the single is parked with Amazon")
 if (ROOT / "data" / "amazon-listings.json").exists() or (ROOT / "site" / "amazon-preview.html").exists():
     err("Amazon files are parked and must not be published")
-
-# doors.json
-for door in doors:
-    label = f"doors.json[{door.get('id')}]"
-    if not check_keys(label, door, ["id", "label", "smoothNonPorous", "benchTestStatus", "benchTestWeeks"]):
-        continue
-    if door["benchTestStatus"] not in ("untested", "pass", "fail"):
-        err(f"{label}: benchTestStatus must be untested, pass or fail")
-    if not is_int(door["benchTestWeeks"]):
-        err(f"{label}: benchTestWeeks must be an integer")
-    elif door["benchTestStatus"] == "untested" and door["benchTestWeeks"] != 0:
-        err(f"{label}: untested doors must have benchTestWeeks 0")
-if not doors:
-    err("doors.json: needs at least one door")
 
 # preorders.seed.json
 four_pack = by_id.get("safeguard-4pack", {})
@@ -135,13 +120,24 @@ def lookup(path):
     return node
 
 
-for key in ["hero.headline", "hero.sub", "product.description", "product.materialsLine", "doors.note",
+for key in ["hero.headline", "hero.sub", "product.description", "product.materialsLine", "doors.note", "faq.q7",
             "preorder.notice", "preorder.privacy", "preorder.sendError", "preorder.sending",
             "preorder.thanksBodyLive", "preorder.testBanner", "footer.disclaimer"]:
     if not isinstance(lookup(key), str) or not lookup(key).strip():
         err(f"copy.json: missing or empty '{key}'")
 if lookup("product.materialsLine") != "washable canvas with a soft-touch silicone back":
     err("copy.json: product.materialsLine must equal the marketing line from the PRD")
+
+# The door limits have no page of their own, so these are the only places customers see them.
+note = (lookup("doors.note") or "").lower()
+for phrase in ("smooth, non-porous", "not recommended"):
+    if phrase not in note:
+        err(f"copy.json: doors.note must say '{phrase}'")
+for page in ("product.html", "index.html"):
+    if 'data-copy="doors.note"' not in (ROOT / "site" / page).read_text():
+        err(f"site/{page}: must show doors.note")
+if (ROOT / "data" / "doors.json").exists() or (ROOT / "site" / "doors.html").exists():
+    err("The doors page is removed and must not be published")
 
 if errors:
     print(f"FAIL: {len(errors)} problem(s)")
