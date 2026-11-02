@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safeguard 4-pack</title>
+  <meta name="description" content="Four washable canvas phone sleeves with silicone suction backs, one for each bedroom and bathroom door.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="product">
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html" data-copy="pdp.home"></a> <span aria-hidden="true">/</span>
+      <a href="index.html#shop" data-copy="nav.shop"></a> <span aria-hidden="true">/</span>
+      <span data-copy="buy.packTitle"></span>
+    </nav>
+
+    <div class="pdp">
+      <div class="gallery">
+        <div class="tile big"><img id="main-image" src="img/pack.png" alt="Four cream canvas sleeves side by side, each showing only the top of a phone" width="390" height="428"></div>
+        <div class="thumbs" role="group" aria-label="Product images">
+          <button type="button" class="thumb" aria-pressed="true" data-src="img/pack.png" data-alt="Four cream canvas sleeves side by side, each showing only the top of a phone"><img src="img/pack.png" alt="" width="390" height="428"><span data-copy="pdp.pack"></span></button>
+          <button type="button" class="thumb" aria-pressed="false" data-src="img/sleeve.png" data-alt="A cream canvas sleeve with only the top of a phone showing above it"><img src="img/sleeve.png" alt="" width="340" height="428"><span data-copy="pdp.front"></span></button>
+          <button type="button" class="thumb" aria-pressed="false" data-src="img/sleeve-back.png" data-alt="The sleeve beside its back, which has six suction cups in three rows of two"><img src="img/sleeve-back.png" alt="" width="307" height="428"><span data-copy="pdp.back"></span></button>
+        </div>
+      </div>
+
+      <div class="buybox">
+        <h1 data-copy="buy.packTitle"></h1>
+        <p class="muted" data-copy="product.fourPackLine"></p>
+        <p class="price" data-product="safeguard-4pack" data-field="packPriceCents"></p>
+        <p class="price-sub">4 × <span data-product="safeguard-4pack" data-field="unitPriceCents"></span> · <span data-copy="buy.shipping"></span></p>
+
+        <label for="qty" class="qty-label" data-copy="pdp.qty"></label>
+        <div class="stepper">
+          <button type="button" id="minus" aria-label="One fewer">−</button>
+          <input id="qty" type="number" min="1" max="10" value="1" inputmode="numeric">
+          <button type="button" id="plus" aria-label="One more">+</button>
+        </div>
+
+        <a class="button wide" id="cta" href="checkout.html"><span data-copy="pdp.cta"></span> · <span id="cta-total"></span></a>
+        <p class="notice" data-copy="preorder.notice"></p>
+
+        <ul class="perks">
+          <li data-copy="pdp.perk1"></li>
+          <li data-copy="pdp.perk2"></li>
+          <li data-copy="pdp.perk3"></li>
+        </ul>
+
+        <p class="single-line"><span data-copy="pdp.single"></span> <a class="link" id="amazon-link" href="amazon-preview.html" data-copy="shop.amazonCta"></a></p>
+
+        <div class="acc">
+          <details open>
+            <summary data-copy="pdp.detailsTitle"></summary>
+            <p data-copy="product.description"></p>
+            <ul class="details">
+              <li data-copy="product.detail1"></li>
+              <li data-copy="product.detail2"></li>
+              <li data-copy="product.detail3"></li>
+              <li data-copy="product.detail4"></li>
+            </ul>
+          </details>
+          <details>
+            <summary data-copy="pdp.careTitle"></summary>
+            <p data-copy="pdp.care"></p>
+          </details>
+          <details>
+            <summary data-copy="pdp.doorsTitle"></summary>
+            <p data-copy="doors.note"></p>
+            <p><a class="link" href="doors.html" data-copy="doors.guide"></a></p>
+          </details>
+          <details>
+            <summary data-copy="pdp.shipTitle"></summary>
+            <p data-copy="pdp.ship"></p>
+          </details>
+          <details>
+            <summary data-copy="pdp.reviewsTitle"></summary>
+            <p data-copy="pdp.reviews"></p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import './js/chrome.js';
+    import { boot, money } from './js/data.js';
+    import { captureSource } from './js/source.js';
+    captureSource();
+    const { products, listings } = await boot();
+    const pack = products.find((p) => p.id === 'safeguard-4pack');
+
+    if (listings[0]) document.getElementById('amazon-link').href = listings[0].listingUrl;
+
+    // Gallery
+    const main = document.getElementById('main-image');
+    const thumbs = document.querySelectorAll('.thumb');
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        main.src = thumb.dataset.src;
+        main.alt = thumb.dataset.alt;
+        thumbs.forEach((t) => t.setAttribute('aria-pressed', String(t === thumb)));
+      });
+    });
+
+    // Quantity and checkout link
+    const qty = document.getElementById('qty');
+    const cta = document.getElementById('cta');
+    const total = document.getElementById('cta-total');
+    const clamp = (n) => (Number.isInteger(n) && n >= 1 ? Math.min(n, 10) : 1);
+    function sync() {
+      const n = clamp(Number.parseInt(qty.value, 10));
+      total.textContent = money(n * pack.packPriceCents);
+      cta.href = `checkout.html?qty=${n}`;
+    }
+    document.getElementById('minus').addEventListener('click', () => { qty.value = clamp(Number.parseInt(qty.value, 10) - 1); sync(); });
+    document.getElementById('plus').addEventListener('click', () => { qty.value = clamp(Number.parseInt(qty.value, 10) + 1); sync(); });
+    qty.addEventListener('input', sync);
+    sync();
+  </script>
+</body>
+</html>

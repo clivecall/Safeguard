@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safeguard Pre-order</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="checkout">
+  <main class="wrap">
+    <div class="page-head">
+      <h1 data-copy="preorder.checkoutTitle"></h1>
+      <p class="muted" data-copy="preorder.checkoutSub"></p>
+      <p class="notice" data-copy="preorder.notice"></p>
+    </div>
+
+    <div class="two">
+      <form id="preorder-form" class="card" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="qty">Number of 4-packs</label>
+        <input id="qty" name="qty" type="number" min="1" max="10" value="1" inputmode="numeric" required>
+        <button class="button" type="submit" data-copy="preorder.submit"></button>
+      </form>
+
+      <div class="card">
+        <figure><img src="img/pack.png" alt="Four cream canvas sleeves side by side, each showing only the top of a phone" width="390" height="428"></figure>
+        <h3 data-copy="preorder.orderTitle"></h3>
+        <div class="summary"><span id="units"></span></div>
+        <div class="summary"><span>Shipping</span><span>Free</span></div>
+        <div class="summary"><span>Total (nothing charged now)</span><span id="total"></span></div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import './js/chrome.js';
+    import './js/checkout.js';
+  </script>
+</body>
+</html>

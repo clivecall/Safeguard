@@ -1,0 +1,10 @@
+[
+  { "id": "gloss-paint", "label": "Gloss painted door", "smoothNonPorous": true, "benchTestStatus": "untested", "benchTestWeeks": 0 },
+  { "id": "semi-gloss-paint", "label": "Semi-gloss painted door", "smoothNonPorous": true, "benchTestStatus": "untested", "benchTestWeeks": 0 },
+  { "id": "laminate", "label": "Laminate door", "smoothNonPorous": true, "benchTestStatus": "untested", "benchTestWeeks": 0 },
+  { "id": "glass", "label": "Glass door", "smoothNonPorous": true, "benchTestStatus": "untested", "benchTestWeeks": 0 },
+  { "id": "metal", "label": "Metal door", "smoothNonPorous": true, "benchTestStatus": "untested", "benchTestWeeks": 0 },
+  { "id": "flat-matte-paint", "label": "Flat or matte painted door", "smoothNonPorous": false, "benchTestStatus": "untested", "benchTestWeeks": 0 },
+  { "id": "textured", "label": "Textured door", "smoothNonPorous": false, "benchTestStatus": "untested", "benchTestWeeks": 0 },
+  { "id": "bare-wood", "label": "Bare wood door", "smoothNonPorous": false, "benchTestStatus": "untested", "benchTestWeeks": 0 }
+]

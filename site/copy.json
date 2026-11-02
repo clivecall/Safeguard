@@ -1,0 +1,163 @@
+{
+  "brand": {
+    "name": "Safeguard"
+  },
+  "nav": {
+    "how": "How it works",
+    "inside": "What it is",
+    "doors": "Doors",
+    "faq": "FAQ",
+    "preorder": "Pre-order",
+    "back": "Back to the store",
+    "shop": "Shop",
+    "announce": "Free shipping on the 4-pack. Pre-order now, ships Early 2027.",
+    "announceCta": "Pre-order"
+  },
+  "hero": {
+    "badge": "Pre-order · ships Early 2027",
+    "headline": "A place for the phone, outside the door.",
+    "sub": "Safeguard hangs on the hallway side of bedroom and bathroom doors, so your family's no-phones rule is easy to keep and easy to see.",
+    "cta": "Pre-order the 4-pack"
+  },
+  "features": {
+    "f1": "Six suction cups",
+    "f1sub": "No drilling, no adhesive",
+    "f2": "Washable canvas",
+    "f2sub": "Soft-touch silicone back",
+    "f3": "Screen covered",
+    "f3sub": "Only the top of the phone shows",
+    "f4": "Moves with you",
+    "f4sub": "Reuse it on any suitable door"
+  },
+  "product": {
+    "title": "What it is",
+    "description": "A phone-sized sleeve that holds the phone outside the door. It covers the screen and leaves only the top of the phone showing.",
+    "materialsLine": "washable canvas with a soft-touch silicone back",
+    "fourPackLine": "One for each bedroom and bathroom door.",
+    "detail1": "Six built-in suction cups. No drilling and no adhesive, and it can be moved to another door.",
+    "detail2": "Covers the screen and leaves only the top of the phone visible from the hallway.",
+    "detail3": "Cable hole in the bottom for your own charger. Charger not included.",
+    "detail4": "Plain cream front with no logo. Nothing to charge and nothing to set up.",
+    "frontLabel": "Front",
+    "backLabel": "Back, with six suction cups"
+  },
+  "routine": {
+    "sub": "Parents dock their phones too. It is a house habit, not a rule aimed at one person.",
+    "step1title": "Hang it",
+    "step1": "Press the sleeve onto the hallway side of each bedroom and bathroom door.",
+    "step2title": "Pick your rule",
+    "step2": "Choose what works for your family, such as no phones in bathrooms, or phones docked from 9pm.",
+    "step3title": "Drop the phone in",
+    "step3": "Before going in, put the phone into that door's Safeguard.",
+    "step4title": "See it from the hallway",
+    "step4": "The top of the phone shows, so there is nothing to ask.",
+    "step5title": "Dock it at bedtime",
+    "step5": "Leave the phone outside the door overnight. Some families collect them to charge in the parents' room."
+  },
+  "doors": {
+    "title": "Which doors it is made for",
+    "note": "Suction cups hold best on smooth, non-porous doors such as gloss or semi-gloss paint, laminate, glass and metal. They are not recommended on flat or matte paint, textured doors or bare wood. We have not finished testing yet, so every finish is marked untested.",
+    "bestOn": "Made for smooth, non-porous doors",
+    "notOn": "Not recommended",
+    "guide": "See the full door guide",
+    "expected": "Expected to hold. Bench test pending.",
+    "notRecommended": "Not recommended.",
+    "pass": "Tested: held for the full test.",
+    "fail": "Tested: did not hold."
+  },
+  "buy": {
+    "title": "Get your Safeguards",
+    "packTitle": "Safeguard 4-pack",
+    "shipping": "Free shipping",
+    "why": "Four sleeves, so every bedroom and bathroom door has its own place for the phone."
+  },
+  "faq": {
+    "title": "Questions.",
+    "q1": "Why a 4-pack?",
+    "a1": "Most families want one Safeguard on each bedroom door and each bathroom door. The 4-pack covers four doors, with free shipping.",
+    "q2": "Will it fit my phone?",
+    "a2": "It is sized for common phone sizes. We are still finalising the exact dimensions, including for phones in cases, so we will confirm before the 4-pack ships.",
+    "q3": "Do I need an outlet by the door?",
+    "a3": "Only if you want to charge the phone there. The cable hole in the bottom lets your own charger reach the phone. A charger is not included.",
+    "q4": "Is anything charged today?",
+    "a4": "No. This is a pre-order and this prototype takes no payment. We will email you before anything ships.",
+    "q5": "How do I clean it?",
+    "a5": "Hand-wash the canvas front and wipe the silicone back clean.",
+    "q6": "Can I move it to another door?",
+    "a6": "Yes. The suction cups use no adhesive, so you can move the sleeve to another suitable door or room."
+  },
+  "preorder": {
+    "notice": "Pre-order. Safeguard is not in production yet and is expected to ship in Early 2027. This prototype takes no payment.",
+    "checkoutTitle": "Reserve your 4-pack",
+    "checkoutSub": "Tell us where to reach you. Nothing is charged, and we will email you before anything ships.",
+    "submit": "Reserve my 4-pack",
+    "orderTitle": "Your pre-order",
+    "thanksTitle": "You are on the list",
+    "thanksBody": "Your pre-order is saved in this browser only, because this is a prototype with mock data. No payment was taken."
+  },
+  "amazon": {
+    "singlesNote": "Only need one? A single Safeguard is available on Amazon. The 4-pack is sold only here, with free shipping.",
+    "singlesLink": "See the single on Amazon",
+    "previewBanner": "Mock preview of the Amazon single listing. This is not a real Amazon page.",
+    "cardLabel": "The card packed in each single",
+    "cardCta": "Get the 4-pack with free shipping"
+  },
+  "footer": {
+    "disclaimer": "Prototype with mock data. No payment is taken and nothing here is for sale yet."
+  },
+  "shop": {
+    "badgeAmazon": "Sold on Amazon",
+    "singleSub": "One sleeve, sold on Amazon",
+    "amazonCta": "View on Amazon"
+  },
+  "rooms": {
+    "title": "Shop by door.",
+    "bedroomTitle": "Bedroom doors",
+    "bedroom": "A place for the phone at bedtime, right outside the room.",
+    "bathroomTitle": "Bathroom doors",
+    "bathroom": "Drop the phone in before you go in, and pick it up on the way out.",
+    "cta": "Shop the 4-pack"
+  },
+  "pdp": {
+    "home": "Home",
+    "qty": "Quantity (4-packs)",
+    "cta": "Pre-order now",
+    "single": "Need just one?",
+    "perk1": "Free shipping on the 4-pack",
+    "perk2": "Expected to ship in Early 2027",
+    "perk3": "Nothing is charged today",
+    "detailsTitle": "Details",
+    "careTitle": "Materials and care",
+    "care": "Made from washable canvas with a soft-touch silicone back. Hand-wash the canvas front and wipe the silicone back clean.",
+    "doorsTitle": "Door compatibility",
+    "shipTitle": "Shipping and pre-order",
+    "ship": "The 4-pack ships free. Safeguard is not in production yet, so this is a pre-order and nothing is charged in this prototype. We will email you before anything ships.",
+    "reviewsTitle": "Reviews",
+    "reviews": "No reviews yet. Safeguard has not shipped, so there is nothing to show here.",
+    "moreTitle": "Also from Safeguard",
+    "front": "Front view",
+    "back": "Back view",
+    "pack": "The 4-pack"
+  },
+  "store": {
+    "title": "Safeguard.",
+    "helpSingle": "Only need one?",
+    "helpDoors": "Not sure about your door?",
+    "cat4pack": "4-pack",
+    "catSingle": "Single",
+    "catBack": "Suction back",
+    "catDoors": "Door guide",
+    "catRoutine": "Routine",
+    "catFaq": "Questions",
+    "shopTitle": "The 4-pack.",
+    "shopSub": "One for every bedroom and bathroom door.",
+    "card1title": "Pre-order the 4-pack.",
+    "card3title": "Six suction cups.",
+    "card4sub": "Gloss or semi-gloss paint, laminate, glass and metal. Bench test pending.",
+    "roomsSub": "Bedrooms and bathrooms.",
+    "routineTitle": "The routine.",
+    "diffTitle": "The Safeguard difference.",
+    "diffSub": "Simple by design. Nothing to set up.",
+    "faqSub": "Before you pre-order."
+  }
+}

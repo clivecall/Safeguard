@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safeguard Door Guide</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="doors">
+  <main class="wrap">
+    <div class="page-head">
+      <h1 data-copy="doors.title"></h1>
+      <p class="muted" data-copy="doors.note"></p>
+    </div>
+    <table>
+      <thead><tr><th>Door finish</th><th>Status</th></tr></thead>
+      <tbody id="door-rows"></tbody>
+    </table>
+    <p style="margin-top:24px"><a class="button" href="product.html" data-copy="hero.cta"></a></p>
+  </main>
+
+  <script type="module">
+    import './js/chrome.js';
+    import { boot, getCopy } from './js/data.js';
+    const { doors, copy } = await boot();
+
+    // "Expected to hold" is only ever shown for smooth, non-porous finishes.
+    function status(door) {
+      if (door.benchTestStatus === 'pass' && door.smoothNonPorous) return getCopy(copy, 'doors.pass');
+      if (door.benchTestStatus === 'fail') return getCopy(copy, 'doors.fail');
+      return door.smoothNonPorous ? getCopy(copy, 'doors.expected') : getCopy(copy, 'doors.notRecommended');
+    }
+
+    const body = document.getElementById('door-rows');
+    for (const door of doors) {
+      const row = document.createElement('tr');
+      const label = document.createElement('td');
+      label.textContent = door.label;
+      const state = document.createElement('td');
+      const tag = document.createElement('span');
+      tag.className = door.smoothNonPorous ? 'tag' : 'tag off';
+      tag.textContent = status(door);
+      state.append(tag);
+      row.append(label, state);
+      body.append(row);
+    }
+  </script>
+</body>
+</html>

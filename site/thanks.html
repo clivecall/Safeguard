@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safeguard Pre-order Saved</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="thanks">
+  <main class="wrap">
+    <div class="page-head">
+      <h1 data-copy="preorder.thanksTitle"></h1>
+      <p class="muted" data-copy="preorder.thanksBody"></p>
+    </div>
+    <div class="card" id="order" hidden style="max-width:480px">
+      <div class="summary"><span>Pre-order id</span><span id="order-id"></span></div>
+      <div class="summary"><span>Quantity</span><span id="order-qty"></span></div>
+      <div class="summary"><span>Total (nothing charged now)</span><span id="order-total"></span></div>
+    </div>
+    <p style="margin-top:24px"><a class="button ghost" href="index.html" data-copy="nav.back"></a></p>
+  </main>
+
+  <script type="module">
+    import './js/chrome.js';
+    import { boot, money } from './js/data.js';
+    await boot();
+    const id = new URLSearchParams(location.search).get('id');
+    let order = null;
+    try {
+      order = (JSON.parse(localStorage.getItem('safeguard.preorders')) || []).find((o) => o.id === id);
+    } catch {
+      // Storage blocked: show the confirmation without details.
+    }
+    if (order) {
+      document.getElementById('order-id').textContent = order.id;
+      document.getElementById('order-qty').textContent = `${order.quantity} × 4-pack`;
+      document.getElementById('order-total').textContent = money(order.totalCents);
+      document.getElementById('order').hidden = false;
+    }
+  </script>
+</body>
+</html>

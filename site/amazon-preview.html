@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safeguard Amazon Preview</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="amazon">
+  <p class="mock-banner" data-copy="amazon.previewBanner"></p>
+
+  <main class="wrap">
+    <div class="hero" style="padding-bottom:24px">
+      <div>
+        <h1 id="title" style="font-size:clamp(24px,5vw,36px)"></h1>
+        <p class="price" id="price"></p>
+        <p class="notice" data-copy="preorder.notice"></p>
+        <ul class="details" id="bullets"></ul>
+        <p style="margin-top:20px"><button class="button" disabled>Mock buy button</button></p>
+        <p class="muted" id="asin"></p>
+      </div>
+      <figure>
+        <img src="img/sleeve.png" alt="A cream canvas sleeve with only the top of a phone showing above it" width="340" height="428">
+      </figure>
+    </div>
+
+    <section class="block" style="padding-top:8px">
+      <p class="muted" data-copy="amazon.cardLabel"></p>
+      <div class="card">
+        <h2 id="card-headline"></h2>
+        <p id="card-body"></p>
+        <a class="button" id="card-link" href="index.html" data-copy="amazon.cardCta"></a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import './js/chrome.js';
+    import { boot, money } from './js/data.js';
+    const { listings } = await boot();
+    const listing = listings[0];
+
+    document.getElementById('title').textContent = listing.title;
+    document.getElementById('price').textContent = money(listing.priceCents);
+    document.getElementById('asin').textContent = `Listing id: ${listing.asin}`;
+    document.getElementById('card-headline').textContent = listing.packageCard.headline;
+    document.getElementById('card-body').textContent = listing.packageCard.body;
+    document.getElementById('card-link').href = listing.packageCard.url;
+
+    const bullets = document.getElementById('bullets');
+    for (const text of listing.bullets) {
+      const li = document.createElement('li');
+      li.textContent = text;
+      bullets.append(li);
+    }
+  </script>
+</body>
+</html>
