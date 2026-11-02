@@ -13,7 +13,9 @@ const PACK_PRICE_CENTS = 3488; // tests/validate_data.py checks this against dat
 const PRODUCT_ID = 'safeguard-4pack';
 const MAX_PACKS = 10;
 const SOURCES = ['direct', 'amazon-card', 'survey'];
-const HEADERS = ['id', 'createdAt', 'source', 'productId', 'quantity', 'totalCents', 'name', 'email', 'status'];
+const HEADERS = ['id', 'createdAt', 'source', 'productId', 'quantity', 'total', 'name', 'email', 'status'];
+const TOTAL_COLUMN = HEADERS.indexOf('total') + 1;
+const TOTAL_FORMAT = '$#,##0.00';
 
 function reply(ok) {
   return ContentService.createTextOutput(JSON.stringify({ ok })).setMimeType(ContentService.MimeType.JSON);
@@ -46,7 +48,7 @@ function toRow(order) {
     order.source,
     PRODUCT_ID,
     order.quantity,
-    order.quantity * PACK_PRICE_CENTS,
+    (order.quantity * PACK_PRICE_CENTS) / 100, // The sheet is for people to read, so it shows dollars.
     plainText(name),
     plainText(email),
     'preorder',
@@ -65,7 +67,10 @@ function doPost(e) {
     if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
     // A retry after a lost response sends the same id, so it must not add a second row.
     const seen = sheet.createTextFinder(order.id).matchEntireCell(true).findNext();
-    if (!seen) sheet.appendRow(row);
+    if (!seen) {
+      sheet.appendRow(row);
+      sheet.getRange(sheet.getLastRow(), TOTAL_COLUMN).setNumberFormat(TOTAL_FORMAT);
+    }
     return reply(true);
   } catch (err) {
     console.error(err);
