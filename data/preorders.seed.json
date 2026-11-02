@@ -1,5 +1,5 @@
 [
-  { "id": "MOCK-1001", "createdAt": "2026-10-14T18:20:00Z", "source": "direct", "productId": "safeguard-4pack", "quantity": 1, "totalCents": 3488, "name": "Sample Parent", "email": "parent1@example.com", "status": "mock-preorder" },
-  { "id": "MOCK-1002", "createdAt": "2026-10-15T09:05:00Z", "source": "amazon-card", "productId": "safeguard-4pack", "quantity": 1, "totalCents": 3488, "name": "Sample Family", "email": "family2@example.com", "status": "mock-preorder" },
-  { "id": "MOCK-1003", "createdAt": "2026-10-16T21:40:00Z", "source": "survey", "productId": "safeguard-4pack", "quantity": 2, "totalCents": 6976, "name": "Sample Household", "email": "house3@example.com", "status": "mock-preorder" }
+  { "id": "MOCK-1001", "createdAt": "2026-10-14T18:20:00Z", "source": "direct", "productId": "safeguard-4pack", "quantity": 1, "totalCents": 3999, "name": "Sample Parent", "email": "parent1@example.com", "status": "mock-preorder" },
+  { "id": "MOCK-1002", "createdAt": "2026-10-15T09:05:00Z", "source": "amazon-card", "productId": "safeguard-4pack", "quantity": 1, "totalCents": 3999, "name": "Sample Family", "email": "family2@example.com", "status": "mock-preorder" },
+  { "id": "MOCK-1003", "createdAt": "2026-10-16T21:40:00Z", "source": "survey", "productId": "safeguard-4pack", "quantity": 2, "totalCents": 7998, "name": "Sample Household", "email": "house3@example.com", "status": "mock-preorder" }
 ]

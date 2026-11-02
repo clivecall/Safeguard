@@ -38,7 +38,7 @@ preorders = load("data/preorders.seed.json") or []
 copy = load("site/copy.json") or {}
 
 # products.json
-product_keys = ["id", "name", "packSize", "unitPriceCents", "packPriceCents", "currency", "channel",
+product_keys = ["id", "name", "packSize", "packPriceCents", "currency", "channel",
                 "shipping", "status", "shipWindow", "cupCount", "materials", "image"]
 by_id = {}
 for p in products:
@@ -50,10 +50,8 @@ for p in products:
         err(f"{label}: unknown id")
     if p["packSize"] not in (1, 4):
         err(f"{label}: packSize must be 1 or 4")
-    if not (is_int(p["unitPriceCents"]) and is_int(p["packPriceCents"])):
+    if not is_int(p["packPriceCents"]):
         err(f"{label}: prices must be integer cents")
-    elif p["packPriceCents"] != p["unitPriceCents"] * p["packSize"]:
-        err(f"{label}: packPriceCents {p['packPriceCents']} != unitPriceCents x packSize")
     if p["currency"] != "USD":
         err(f"{label}: currency must be USD")
     if p["status"] != "preorder":
@@ -65,13 +63,10 @@ for p in products:
     if not (ROOT / "site" / p["image"]).exists():
         err(f"{label}: image not found at site/{p['image']}")
     if p["id"] == "safeguard-4pack":
-        if p["channel"] != "website" or p["unitPriceCents"] != 872 or p["packPriceCents"] != 3488:
-            err(f"{label}: must be website, 872 per unit, 3488 per pack")
+        if p["channel"] != "website" or p["packPriceCents"] != 3999:
+            err(f"{label}: must be website at 3999 per pack")
         if p["shipping"].get("freeShipping") is not True:
             err(f"{label}: 4-pack must ship free")
-    if p["id"] == "safeguard-single":
-        if p["channel"] != "amazon" or p["unitPriceCents"] != 897:
-            err(f"{label}: must be amazon at 897")
 if "safeguard-4pack" not in by_id:
     err("products.json: missing safeguard-4pack")
 if "safeguard-single" in by_id:

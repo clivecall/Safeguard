@@ -9,7 +9,7 @@
 //
 // After editing this script, publish it with Deploy > Manage deployments > Edit > New version.
 
-const PACK_PRICE_CENTS = 3488; // tests/validate_data.py checks this against data/products.json
+const PACK_PRICE_CENTS = 3999; // tests/validate_data.py checks this against data/products.json
 const PRODUCT_ID = 'safeguard-4pack';
 const MAX_PACKS = 10;
 const SOURCES = ['direct', 'amazon-card', 'survey'];
